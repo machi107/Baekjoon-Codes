@@ -1,0 +1,22 @@
+a,b=map(int,input().split())
+x=[0 for _ in range(a)]
+r=[]
+for i in range(a):r.append(list(map(int,input().split())))
+for i in range(a):r[i].sort()
+for j in range(b):
+  t=[0]
+  q=0
+  for k in range(a):
+    if r[k][j]>q:
+      t=[k]
+      q=r[k][j]
+    elif r[k][j]==q:
+      t.append(k)
+  for i in range(len(t)):
+    x[t[i]]+=1
+e=max(x)
+an=""
+for i in range(a):
+  if x[i]==e:
+    an+=str(i+1)+" "
+print(an[:-1])
